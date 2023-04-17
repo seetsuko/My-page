@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
-// import { Router } from './routes/Router';
+import { Router } from './routes/Router';
 
 export const App = () =>{
   
@@ -13,7 +13,7 @@ export const App = () =>{
     <div>
       <Header />
       {/* {open && <Sidebar />}  */}
-      {/* <Router /> */}
+      <Router />
       <Footer />
     </div>
   )

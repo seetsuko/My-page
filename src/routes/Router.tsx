@@ -2,7 +2,7 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 // import { Contact } from "../page/Contact"
 // import { Hobby } from "../page/Hobby"
-import { Home } from "../page/Home"
+// import { Home } from "../page/Home"
 // import { Profile } from "../page/Profile"
 
 export const Router = () => {
@@ -12,12 +12,13 @@ export const Router = () => {
   return(
     <div className="route">
       <p>ルーターページ</p>
-      <Routes>
+      {/* <Hobby /> */}
+      {/* <Routes> */}
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route path="/profile" element={<Profile />} />
         <Route path="/hobby" element={<Hobby />} />
         <Route path="/contact" element={<Contact />} /> */}
-      </Routes>
+      {/* </Routes> */}
     </div>
   )
 }

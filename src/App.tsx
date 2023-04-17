@@ -1,25 +1,21 @@
-import './App.css';
-import { Sidebar } from './page/Sidebar';
-import { Footer } from './Footer';
+import React from 'react';
 import { Header } from './Header';
-import { Router } from './routes/Router';
-import { menuOpenState } from './atoms/menuOpenState';
-import { useRecoilValue } from 'recoil';
+import { Footer } from './Footer';
+// import { Router } from './routes/Router';
 
-function App() {
+export const App = () =>{
+  
+  // const open = useRecoilValue(menuOpenState)
 
-  const open = useRecoilValue(menuOpenState)
+  // console.log(open)
 
-  console.log(open)
-
-  return (
+  return(
     <div>
       <Header />
-      {open && <Sidebar />} 
-      <Router />
+      {/* {open && <Sidebar />}  */}
+      {/* <Router /> */}
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;

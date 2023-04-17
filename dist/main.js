@@ -1,1 +1,0 @@
-(()=>{var e={685:e=>{"use strict";e.exports=require("http")}},t={};(function r(o){var n=t[o];if(void 0!==n)return n.exports;var s=t[o]={exports:{}};return e[o](s,s.exports,r),s.exports})(685).createServer(((e,t)=>{t.writeHead(200,{"Content-Type":"text/html"});const r="<h1>Hello World<h1>";t.end(r),console.log(`レスポンス : ${r}`)})).listen(9e3),console.log("ポートNo. : 9000")})();

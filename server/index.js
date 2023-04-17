@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 const router = express.Router();
 
-// https://localhost:9000 にアクセスがあったらhtmlを返す
+// https://localhost:9000 にアクセスがあったら
 app.get('/', (_, res) => {
   // ./public/index.htmlを取得
   fs.readFile(path.resolve('./public/index.html'), 'utf8', (err, data) => {
@@ -17,23 +17,21 @@ app.get('/', (_, res) => {
       console.error('Something went wrong:', err);
       return res.status(500).send('Oops, better luck next time!');
     }
-    // 返す
+    // 下記の処理を返す
     return res.send(
       data.replace(
-        // 書き換え
+        // rootを書き換え
         '<div id="root"></div>',
         `<div id="root">${renderToString(<App />)}</div>`,
       ),
     );
   });
+  // 処理ができたら表示する
   const responseMessage = 'Hello World';
   console.log(`レスポンス : ${responseMessage}`);
-  // res.send(ssr());
-  // res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 // http://localhost/client.jsにアクセスすることで、publicを取得する
-
 app.use(express.static('./public'));
 
 // 9000番ポートでWebサーバを立てる

@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { App } from './App';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './css/index.css';
 // import { Test } from './Test';
 
@@ -10,8 +10,8 @@ const container = document.querySelector('#root')!;
 hydrateRoot(
   container,
   <React.StrictMode>
-    {/* <Router> */}
+    <Router>
       <App />
-    {/* </Router> */}
+    </Router>
   </React.StrictMode>,
   );

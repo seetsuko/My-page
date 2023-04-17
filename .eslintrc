@@ -47,6 +47,8 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "linebreak-style":"off",
+    "no-console":"off"
   }
 }

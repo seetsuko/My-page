@@ -1,15 +1,15 @@
 import React from 'react'
-// import { useRecoilValue } from "recoil"
-// import { iconState } from "../atoms/iconState"
+import { useRecoilValue } from "recoil"
+import { iconState } from '../atom/iconState'
 
 export const Profile = () => {
 
-  // const icon = useRecoilValue(iconState)
+  const icon = useRecoilValue(iconState)
 
   return(
     <div className="plofile">
         <h2>Profile</h2>
-        {/* <img src={icon} alt="プロフィール画像" className="icon"/> */}
+        <img src={icon} alt="プロフィール画像" className="icon"/>
         <ul>
           <li>
             <h3>名前</h3>

@@ -5,6 +5,7 @@ import fs from 'fs';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import { App } from '../src/App';
+import { RecoilRoot } from 'recoil';
 
 const PORT = process.env.PORT || 9000;
 const server = express();
@@ -16,7 +17,9 @@ server.get('/', (req, res) => {
     const context = {};
     const app = renderToString(
       <StaticRouter location={req.url} context={context}>
-        <App />
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
       </StaticRouter>,
     );
 
@@ -35,7 +38,7 @@ server.get('/', (req, res) => {
   });
   // 処理ができたら表示する
   const responseMessage = 'connection successful!';
-  console.log(`レスポンス : ${responseMessage}`);
+  console.log(`response : ${responseMessage}`);
 });
 
 // http://localhost/client.jsにアクセスすることで、publicを取得する

@@ -1,5 +1,6 @@
 {
   "json.schemas": [],
+  "eslint.nodePath": "C:\\path\\to\\global\\node_modules",
   "eslint.run": "onSave",
   "eslint.autoFixOnSave": true,
   "eslint.validate": [

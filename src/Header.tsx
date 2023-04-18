@@ -4,6 +4,7 @@ import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { useRecoilState } from 'recoil'
 import { menuOpenState } from "./atom/menuOpenState";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
 
@@ -18,7 +19,7 @@ export const Header = () => {
         >
         {open ?<CloseIcon/>:<MenuIcon />}
       </IconButton>
-      <h1>Setsuko's Profile Website</h1>
+      <Link to="/" className="title"><h1>Setsuko's Profile Website</h1></Link>
     </header>
   )
 }

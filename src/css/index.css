@@ -33,6 +33,15 @@ header{
   width: 100%;
 }
 
+header h1{
+  color: aliceblue;
+}
+
+.title{
+  text-decoration: none;
+}
+
+
 
 .sidebar{
   height: 240px;

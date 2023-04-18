@@ -3,16 +3,23 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom/server';
 import { App } from '../src/App';
 
 const PORT = process.env.PORT || 9000;
-const app = express();
-const router = express.Router();
+const server = express();
 
 // https://localhost:9000 にアクセスがあったら
-app.get('/', (_, res) => {
+server.get('/', (req, res) => {
   // ./public/index.htmlを取得
   fs.readFile(path.resolve('./public/index.html'), 'utf8', (err, data) => {
+    const context = {};
+    const app = renderToString(
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>,
+    );
+
     if (err) {
       console.error('Something went wrong:', err);
       return res.status(500).send('Oops, better luck next time!');
@@ -22,19 +29,19 @@ app.get('/', (_, res) => {
       data.replace(
         // rootを書き換え
         '<div id="root"></div>',
-        `<div id="root">${renderToString(<App />)}</div>`,
+        `<div id="root">${app}</div>`,
       ),
     );
   });
   // 処理ができたら表示する
-  const responseMessage = 'Hello World';
+  const responseMessage = 'connection successful!';
   console.log(`レスポンス : ${responseMessage}`);
 });
 
 // http://localhost/client.jsにアクセスすることで、publicを取得する
-app.use(express.static('./public'));
+server.use(express.static('./public'));
 
 // 9000番ポートでWebサーバを立てる
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
